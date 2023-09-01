@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de stands{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+    <h2>Lista de stands</h2>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Stands</th>
+               
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for stand in stand %}
+            
+            <tr>
+                
+                <td>{{stand.localizacao}}</td>
+                <td>
+                    <a href="{% url 'stand_editar' id=stand.id %}"><i class="fas fa-edit"></i></a>
+                    <a href="{% url 'stand_remover' id=stand.id %}"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'detalhe2' id=stand.id %}"><i class="fas fa-search"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mb-3">
+        <a href="{% url 'stand_criar' %}" class="btn btn-primary">Adicionar Novo</a>
+    </div>
+</div>
+{% endblock %}

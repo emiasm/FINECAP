@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+
+    <h2>Formulário</h2>
+    <form method= 'post'>
+        {% csrf_token %}
+        
+
+        
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Localizacao:</label>
+            {{form.localizacao}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Valor:</label>
+            {{form.valor}}
+        </div>
+
+       
+        
+      
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+</div>      
+{% endblock %}

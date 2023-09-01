@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+
+    <h2>Formulário</h2>
+    <form method= 'post'>
+        {% csrf_token %}
+        
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">CNPJ:</label>
+            {{form.cnpj}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome:</label>
+            {{form.nome_empresa}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Categoria:</label>
+            {{form.categoria_empresa}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Quitacao:</label>
+            {{form.quitado}}
+        </div>
+
+        {% comment %} <div class="form-group">
+            <label for="exampleInputEmail1">Stand:</label>
+            {{form.standes}}
+        </div> {% endcomment %}
+        
+      
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+</div>      
+{% endblock %}
