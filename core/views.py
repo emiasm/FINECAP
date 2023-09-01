@@ -16,18 +16,18 @@ def detalhes(request,id):
         'reservas': reservas
     }
 
-    return render(request,'core/detalhe.html',context)
+    return render(request,'core/detalhes.html',context)
 
-def index(request):
-    stands = Stand.objects.all()
-    context={
-        'stands': stands
-    }
+# def index(request):
+#     stands = Stand.objects.all()
+#     context={
+#         'stands': stands
+#     }
 
-    return render(request,'core/index.html',context)
+#     return render(request,'core/index.html',context)
 
 def detalhes2(request,id):
-    reservas = get_object_or_404(Stand, id=id)
+    stands = get_object_or_404(Stand, id=id)
     context={
         'stands': stands
     }

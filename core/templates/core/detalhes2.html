@@ -7,9 +7,9 @@ Reservas
 {% block content %}
     <div class="row">
         <div class="col-12">
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid bg-primary">
                 <div class="container">
-                    <h1 class="display-4">Stands</h1>
+                    <h1 style='color:white'class="display-4">Stands</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,12 @@ Reservas
 
     <div class="card mb-3">
         <div class="card-body">
-            <h5 class="card-title">{{stand.localizacao}}</h5>
+            <h5 class="card-title">{{stands.localizacao}}</h5>
+            
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">{{stands.valor}}</h5>
             
         </div>
         <div class="card-footer text-center">
