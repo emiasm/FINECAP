@@ -9,9 +9,9 @@
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Nome da empresa</th>
+                <th style='font-size:20px'scope="col">Nome da empresa</th>
                
-                <th scope="col">Ações</th>
+                <th style='font-size:20px'scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -22,9 +22,9 @@
                 
                 <td>{{reserva.nome_empresa}}</td>
                 <td>
-                    <a href="{% url 'reserva_editar' id=reserva.id %}"><i class="fas fa-edit"></i></a>
-                    <a href="{% url 'reserva_remover' id=reserva.id %}"><i class="fas fa-trash-alt"></i></a>
-                    <a href="{% url 'detalhes' id=reserva.id %}"><i class="fas fa-search"></i></a>
+                    <a style='color:#483D8B'href="{% url 'reserva_editar' id=reserva.id %}"><i class="fas fa-edit"></i></a>
+                    <a style='color:#483D8B'href="{% url 'reserva_remover' id=reserva.id %}"><i class="fas fa-trash-alt"></i></a>
+                    <a style='color:#483D8B'href="{% url 'detalhes' id=reserva.id %}"><i class="fas fa-search"></i></a>
                 </td>
             </tr>
             {% endfor %}
@@ -32,7 +32,7 @@
     </table>
 
     <div class="mb-3">
-        <a href="{% url 'reserva_criar' %}" class="btn btn-primary">Adicionar Novo</a>
+        <a style='background-color:#483D8B'href="{% url 'reserva_criar' %}" class="btn btn-primary">Adicionar Novo</a>
     </div>
 </div>
 {% endblock %}
