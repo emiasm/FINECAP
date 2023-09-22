@@ -10,10 +10,6 @@
        
          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-         
-
-        
-
         #prin{
              font-family: 'Poppins', sans-serif;
              font-size: 30px;
@@ -64,20 +60,18 @@
       </nav>
 
     <main role="main" class="container">
-        {% block content %}{% endblock %}
-        
-          {% if messages %}
-          {% include "layouts/sms.html" %}
-          {% endif %}
-      
-          {% block alerts %}
-      
-          {% endblock %}
+      <main role="main" class="container">
+        {% if messages %}
+        {% include "layouts/sms.html" %}
+        {% endif %}
 
+        {% block alerts %}
+
+        {% endblock %}
+
+        {% block content %}
+
+        {% endblock %}
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <span style='color:white' class="">Emiliana I.
-    </footer>
-          
+    </main>

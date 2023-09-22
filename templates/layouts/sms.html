@@ -1,20 +1,18 @@
-
 {% for message in messages %}
-<div class="br-message {{ message.tags }}" role="alert">
-  <div class="content">
-    <div class="icon">
-      <i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
-    </div>
-    <span class="message-body">
-      <div class="alert">
+  <script>
+  function recarregarAPagina(){
+      window.location.reload();
+  } 
+  </script>
+  <div class="br-message {{ message.tags }} d-flex justify-content-between " id='mensagem' role="alert">
+    <div class="content d-flex">
+      <div class="icon m-2">
+        <i style='color: #483D8B' class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+      </div>
+      <div class="message-body m-2">
         <p>{{ message|safe }}</p>
       </div>
-    </span>
+    </div>
+    <button onclick="recarregarAPagina()" style='background-color: #483D8B ; color: white' class="btn mt-2 mb-4 pl-2" type="button" aria-label="Fechar"><i class="fas fa-times" aria-hidden="true"></i></button>
   </div>
-  <div class="close">
-    <button class="br-button circle small" type="button" aria-label="Fechar">
-      <i class="fas fa-times" aria-hidden="true"></i>
-    </button>
-  </div>
-</div>
 {% endfor %}

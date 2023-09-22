@@ -1,22 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Cadastro de Stands
+Cadastro de Stands
 {% endblock %}
 
 {% block content %}
-  <div class="mt-5">
-    <h2>Formulário para Cadastro de Stand</h2>
-    <form method="post">
-        <section class="form container-fluid p-5x">
-        {% csrf_token %}
-          <p> Tem certeza qque deseja excluir "{{ object.localizacao }}"?</p>
-          {{ form }}
-      </section>
-        <button style=' background-color:#483D8B' type="submit" class="btn btn-primary">
-          Confirmar
-        </button>
-      </form>
-    
-  </div>
+<div class="mt-5">
+  <h2>Formulário para Cadastro de Stand</h2>
+  <form method="post">
+    <section class="form container-fluid p-5x">
+      {% csrf_token %}
+      <p> Tem certeza que deseja excluir "{{ object.localizacao }}"?</p>
+      {{ form }}
+    </section>
+
+    <a href="{% url 'stand_listar' %}" style=' background-color:#483D8B;  color:white' class="btn ">
+      Voltar
+    </a>
+
+    <button style=' background-color:#483D8B;  color:white' type="submit" class="btn ">
+      Confirmar
+    </button>
+
+
+  </form>
+
+</div>
 {% endblock %}

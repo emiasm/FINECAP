@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Cadastro de Reservas
+Cadastro de Reservas
 {% endblock %}
 
 {% block content %}
-  <div class="mt-5">
-    <h2>Formulário para Cadastro de Reservas</h2>
-    <form method="post">
-        <section class="form container-fluid p-5x">
-        {% csrf_token %}
-          <p> Você tem certeza que deseja excluir "{{ object.nome_empresa }}"?</p>
-          {{ form }}
-      </section>
-        <button style=' background-color:#483D8B' type="submit" class="btn btn-primary">
-          Confirmar
-        </button>
-      </form>
-    
-  </div>
+<div class="mt-5">
+  <h2>Formulário para Cadastro de Reservas</h2>
+  <form method="post">
+    <section class="form container-fluid p-5x">
+      {% csrf_token %}
+      <p> Você tem certeza que deseja excluir "{{ object.nome_empresa }}"?</p>
+      {{ form }}
+    </section>
+
+    <a href="{% url 'stand_listar' %}" style=' background-color:#483D8B;  color:white' class="btn ">
+      Voltar
+    </a>
+    <button style=' background-color:#483D8B ; color:white ' type="submit" class="btn ">
+      Confirmar
+    </button>
+  </form>
+
+</div>
 {% endblock %}
