@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Cadastro de Stands
+{% endblock %}
+
+{% block content %}
+  <div class="mt-5">
+    <h2>Formulário para Cadastro de Stand</h2>
+    <form method="post">
+        <section class="form container-fluid p-5x">
+        {% csrf_token %}
+          <p> Tem certeza qque deseja excluir "{{ object.localizacao }}"?</p>
+          {{ form }}
+      </section>
+        <button style=' background-color:#483D8B' type="submit" class="btn btn-primary">
+          Confirmar
+        </button>
+      </form>
+    
+  </div>
+{% endblock %}

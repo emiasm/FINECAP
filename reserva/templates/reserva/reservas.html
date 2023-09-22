@@ -10,21 +10,29 @@
         <thead class="thead-light">
             <tr>
                 <th style='font-size:20px'scope="col">Nome da empresa</th>
+                <th style='font-size:20px'scope="col">Categoria</th>
                
                 <th style='font-size:20px'scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             
-            {% for reserva in reservas %}
+            {% for object in object_list %}
             
             <tr>
                 
-                <td>{{reserva.nome_empresa}}</td>
+                <td>{{object.nome_empresa}}</td>
+                <td>{{object.categoria_empresa}}</td>
                 <td>
-                    <a style='color:#483D8B'href="{% url 'reserva_editar' id=reserva.id %}"><i class="fas fa-edit"></i></a>
-                    <a style='color:#483D8B'href="{% url 'reserva_remover' id=reserva.id %}"><i class="fas fa-trash-alt"></i></a>
-                    <a style='color:#483D8B'href="{% url 'detalhes' id=reserva.id %}"><i class="fas fa-search"></i></a>
+                    <a style='color:#483D8B'href="{% url 'reserva_editar' pk=object.pk %}"><i class="fas fa-edit"></i></a>
+                    <a style='color:#483D8B'href="{% url 'reserva_remover' pk=object.pk %}"><i class="fas fa-trash-alt"></i></a>
+                    <a style='color:#483D8B'href="{% url 'detalhe' pk=object.pk %}"><i class="fas fa-search"></i></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">
+                <p>Não existem reservas cadastradas.</p>
                 </td>
             </tr>
             {% endfor %}

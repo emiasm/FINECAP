@@ -65,6 +65,15 @@
 
     <main role="main" class="container">
         {% block content %}{% endblock %}
+        
+          {% if messages %}
+          {% include "layouts/sms.html" %}
+          {% endif %}
+      
+          {% block alerts %}
+      
+          {% endblock %}
+
     </main>
 
     <footer class="footer">

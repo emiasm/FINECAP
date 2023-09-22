@@ -11,22 +11,31 @@
         <thead class="thead-light">
             <tr>
                 <th style='font-size:20px'scope="col">Stands</th>
+
+                <th style='font-size:20px'scope="col">Valor</th>
                
                 <th style='font-size:20px'scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             
-            {% for stand in stands %}
+            {% for object in object_list %}
             
             <tr>
                 
-                <td>{{stand.localizacao}}</td>
+                <td>{{object.localizacao}}</td>
+                <td>{{object.valor}}</td>
                 <td>
-                    <a style='color:#483D8B'href="{% url 'stand_editar' id=stand.id %}"><i class="fas fa-edit"></i></a>
-                    <a style='color:#483D8B'href="{% url 'stand_remover' id=stand.id %}"><i class="fas fa-trash-alt"></i></a>
-                    <a style='color:#483D8B'href="{% url 'detalhes2' id=stand.id %}"><i class="fas fa-search"></i></a>
+                    <a style='color:#483D8B' href="{% url 'stand_editar' pk=object.pk %}"><i class="fas fa-edit"></i></a>
+                    <a style='color:#483D8B' href="{% url 'stand_remover' pk=object.pk %}"><i class="fas fa-trash-alt"></i></a>
+                    <a style='color:#483D8B'href="{% url 'detalhe2' pk=object.pk %}"><i class="fas fa-search"></i></a>
                 </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="4">
+                <p>Não existem reservas cadastradas atualmente</p>
+              </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -37,3 +46,10 @@
     </div>
 </div>
 {% endblock %}
+
+
+
+
+
+
+   
