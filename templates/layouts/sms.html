@@ -7,12 +7,12 @@
   <div class="br-message {{ message.tags }} d-flex justify-content-between " id='mensagem' role="alert">
     <div class="content d-flex">
       <div class="icon m-2">
-        <i style='color: #483D8B' class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+        <i style='color:#7386D5' class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
       </div>
       <div class="message-body m-2">
         <p>{{ message|safe }}</p>
       </div>
     </div>
-    <button onclick="recarregarAPagina()" style='background-color: #483D8B ; color: white' class="btn mt-2 mb-4 pl-2" type="button" aria-label="Fechar"><i class="fas fa-times" aria-hidden="true"></i></button>
+    <button onclick="recarregarAPagina()" style='background-color:#7386D5; color: white' class="btn mt-2 mb-4 pl-2" type="button" aria-label="Fechar"><i class="fas fa-times" aria-hidden="true"></i></button>
   </div>
 {% endfor %}

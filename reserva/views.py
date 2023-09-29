@@ -8,6 +8,7 @@ from django.contrib.messages import views
 
 class ReservasListView(generic.ListView):
     model = Reserva
+    paginate_by=2
     template_name = "reserva/reservas.html"
 
 class ReservaCreateView(views.SuccessMessageMixin, generic.CreateView):

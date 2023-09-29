@@ -52,6 +52,7 @@ from django.contrib.messages import views
 
 class StandListView(generic.ListView):
     model = Stand
+    paginate_by=2
     template_name = "stand/stands.html"
 
 class StandCreateView(views.SuccessMessageMixin, generic.CreateView):
