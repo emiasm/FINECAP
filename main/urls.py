@@ -22,7 +22,7 @@
 # ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from core.views import HomeView, ReservaDetailView,StandDetailView2
 
 from reserva.views import ReservasListView, ReservaCreateView, ReservaDeleteView, ReservaUpdateView
@@ -48,6 +48,7 @@ urlpatterns = [
     path('stand/editar/<int:pk>/',StandUpdateView.as_view(), name='stand_editar'),
     path('stand/remover/<int:pk>/',StandDeleteView.as_view(),name='stand_remover'),
     path('stand/listar',StandListView.as_view(),name='stand_listar'),
+    path('accounts/', include('allauth.urls')),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
