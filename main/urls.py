@@ -23,7 +23,7 @@
 
 from django.contrib import admin
 from django.urls import path,include
-from core.views import HomeView, ReservaDetailView,StandDetailView2
+from core.views import HomeView, ReservaDetailView,StandDetailView2, CasaView
 
 from reserva.views import ReservasListView, ReservaCreateView, ReservaDeleteView, ReservaUpdateView
 from stand.views import StandCreateView,StandDeleteView,StandListView,StandUpdateView
@@ -33,6 +33,7 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path('',index,name='index'),
+    path('casa/',CasaView.as_view(),name='casa'),
     path('', HomeView.as_view(), name='index'),
     path('reservas/detail/<int:pk>/', ReservaDetailView.as_view(), name='detalhe'),
     path('stands/detail/<int:pk>/', StandDetailView2.as_view(), name='detalhe2'),

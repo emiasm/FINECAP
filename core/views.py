@@ -1,9 +1,11 @@
 from django.shortcuts import render,get_object_or_404
 from django.views import generic
 from .models import Reserva, Stand
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-
+class CasaView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "pages/home.html"
 
 class HomeView(generic.TemplateView):
     template_name = "core/index.html"
