@@ -34,12 +34,12 @@
           {% csrf_token %}
           <div class="validate-input m-b-16 br-input" data-validate="Please enter username">
             <div class="form-control form-control-lg" >
-              <div class="ml-3">{{ form.login }}</div>
+              <div class="ml-3 ">{{ form.login }}</div>
             </div>
           </div>
-          <div class="validate-input m-b-16 br-input" data-validate="Please enter password">
+          <div class="validate-input m-b-16 br-input mt-2" data-validate="Please enter password">
             <div class="form-control form-control-lg">
-              <div class="ml-3">{{ form.password }}</div>
+              <div class="ml-3 ">{{ form.password }}</div>
             </div>
           </div>
           {% if redirect_field_value %}

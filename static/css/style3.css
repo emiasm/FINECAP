@@ -90,6 +90,11 @@ a:focus {
     display: block;
 }
 
+input {
+    outline: none;
+    border: none;
+  }
+  
 
 #sidebar ul li a:hover {
     color: #7386D5;
