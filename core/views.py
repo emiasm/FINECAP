@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class ProfileView(LoginRequiredMixin, generic.TemplateView):
     template_name = "account/profile.html"
 
-class HomeView(generic.TemplateView):
+class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "core/index.html"
 
 class ReservaDetailView(generic.DetailView):
