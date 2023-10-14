@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Cadastro de reservas{% endblock %}
 
 {% block content %}
 <div class="mt-5">
 
-    <h2>Formulário</h2>
+    <h2>Cadastro de Reservas</h2>
     <form method= 'post'>
         {% csrf_token %}
         
@@ -16,22 +16,24 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Nome:</label>
+            <label for="exampleInputEmail1">Nome: </label>
             {{form.nome_empresa}}
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Categoria:</label>
+            <label for="exampleInputEmail1">Categoria: </label>
             {{form.categoria_empresa}}
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Quitacao:</label>
+            <label for="exampleInputEmail1">Quitação: </label>
             {{form.quitado}}
         </div>
 
+        
+
         <div class="form-group">
-            <label for="exampleInputEmail1">Stand:</label>
+            <label for="exampleInputEmail1">Stand: </label>
             {{form.standes}}
         </div> 
         

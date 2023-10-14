@@ -10,7 +10,7 @@ Cadastro de Stands
   <form method="post">
     <section class="form container-fluid p-5x">
       {% csrf_token %}
-      <p> Tem certeza que deseja excluir "{{ object.localizacao }}"?</p>
+      <p>Tem certeza que deseja excluir "{{ object.localizacao }}"?</p>
       {{ form }}
     </section>
 
