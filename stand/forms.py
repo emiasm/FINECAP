@@ -30,7 +30,7 @@ class StandForm(forms.ModelForm):
     )
     valor = forms.CharField(
         widget=forms.TextInput(attrs={
-            "class": "money, form-control",
+            "class": "money form-control",
             "placeholder": "Valor do stand",
         })
     )
