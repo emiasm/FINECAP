@@ -2,15 +2,18 @@ from django.shortcuts import render,get_object_or_404
 from django.views import generic
 from .models import Reserva, Stand
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from users.permissions import GerentePermission
 
-# Create your views here.
+
+# # Create your views here.
 class ProfileView(LoginRequiredMixin, generic.TemplateView):
     template_name = "account/profile.html"
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "core/index.html"
 
-class ReservaDetailView(generic.DetailView):
+class ReservaDetailView(GerentePermission, LoginRequiredMixin,generic.DetailView):
     model = Reserva
     template_name = "core/detalhes.html"
     
@@ -21,7 +24,7 @@ class ReservaDetailView(generic.DetailView):
 #     }
 #     return render(request, 'core/detalhe.html',context)
 
-class StandDetailView2(generic.DetailView):
+class StandDetailView2(GerentePermission, LoginRequiredMixin,generic.DetailView):
     model = Stand
     template_name = "core/detalhes2.html"
 

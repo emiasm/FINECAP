@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Forbidden (403){% endblock %}
+
+{% block content %}
+<h1>Acesso Negado (403)</h1>
+
+<p>{% if exception %}{{ exception }}{% else %}Você não possui as permissões necessárias para esta página.{% endif %}</p>
+<div class="row justify-content-between mt-6">
+    <div class="col-lg-1 col-md-2 col-sm-3 col-12">
+        <a class="btn" style=' background-color:#7386D5;  color:white'  href="{% url 'index' %}" type="button">
+            <i class="fas fa-chevron-left mr-2" aria-hidden="true"></i>Voltar
+        </a>
+    </div>
+</div>
+{% endblock content %}
