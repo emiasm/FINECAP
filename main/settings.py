@@ -180,7 +180,7 @@ INSTALLED_APPS = [
     'reserva',
     'users',
     'allauth',
-   
+    'django_filters',
     'allauth.account',
     'allauth.socialaccount',
 ]

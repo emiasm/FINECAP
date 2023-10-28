@@ -8,12 +8,23 @@ from django.contrib.messages import views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from users.permissions import GerentePermission
 
+from django_filters.views import FilterView
+from .filters import StandFilter
+class StandListView( LoginRequiredMixin, FilterView):
+    model = Stand
+    paginate_by=10
+    ordering = ["-created_at"]
+    filterset_class = StandFilter
+    template_name = "stand/stands.html"
+
+    def get_queryset(self):
+        return Stand.objects.filter()
 # Create your views here.
 
-class StandListView( LoginRequiredMixin, generic.ListView):
-    model = Stand
-    paginate_by=2
-    template_name = "stand/stands.html"
+# class StandListView( LoginRequiredMixin, generic.ListView):
+#     model = Stand
+#     paginate_by=10
+#     template_name = "stand/stands.html"
 
 class StandCreateView(GerentePermission, LoginRequiredMixin,views.SuccessMessageMixin, generic.CreateView):
   model = Stand

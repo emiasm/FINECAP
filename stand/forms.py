@@ -1,17 +1,3 @@
-# from django import forms 
-# from django.forms import ModelForm
-# from core.models import Stand
-
-# class StandForm(ModelForm):
-#     class Meta:
-#         model = Stand
-#         fields = "__all__"
-#         widgets = {
-#             'localizacao' : forms.TextInput(attrs={'class': 'form-control' }),
-#             'valor': forms.TextInput(attrs={'class':'form-control'}),
-            
-#         }
-
 
 from decimal import Decimal
 
@@ -38,6 +24,21 @@ class StandForm(forms.ModelForm):
     def clean_valor(self):
         valor = self.cleaned_data["valor"]
         return Decimal(valor.replace(",", "."))
+
+    class Meta:
+        model = Stand
+        fields = (
+            "localizacao",
+            "valor",
+        )
+
+    def clean_localizacao(self):
+        localizacao = self.cleaned_data["localizacao"]
+        if localizacao == "Raphael":
+            raise forms.ValidationError(
+                "O campo localização não pode ser Raphael.",
+            )
+        return localizacao
 
     class Meta:
         model = Stand

@@ -7,13 +7,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from users.permissions import GerentePermission
 
 
+from django_filters.views import FilterView
+from .filters import ReservaFilter
 
 # Create your views here.
 
-class ReservasListView(LoginRequiredMixin, generic.ListView):
+class ReservasListView(LoginRequiredMixin,FilterView):
     model = Reserva
-    paginate_by=4
+    paginate_by=10
+    ordering = ["-created_at"]
+    filterset_class = ReservaFilter
     template_name = "reserva/reservas.html"
+
+    def get_queryset(self):
+        return Reserva.objects.filter()
+
 
 class ReservaCreateView(GerentePermission, LoginRequiredMixin,views.SuccessMessageMixin, generic.CreateView):
   model = Reserva
