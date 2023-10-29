@@ -2,34 +2,73 @@
 {% load i18n %}
 
 {% block content %}
+<form method="GET" action="{% url 'users:list' %}" autocomplete="off">
+    <section class="form container-fluid p-5x">
+        <div class="row">
+          <div class="col-12 mx-0 mt-3">
+            <p>{% translate "Filtros" %}</p>
+            <span class="br-divider sm mt-3"></span>
+          </div>
+          <div class="col-12 mx-0 mt-3">
+            <div class="br-input input-inline">
+              <div class="input-content">
+
+                
+                <div class="d-flex">
+                    <div class="form-group">
+                    {{ filter.form.username.label_tag }}
+                    {{ filter.form.username }}
+                    </div>
+
+                    <div class="col-12 mx-0 mt-4">
+                        <button  style=' background-color:#7386D5;  color:white' class="btn " type="submit" name="filtrar">
+                          <i class="fa fa-filter"></i>
+                          {% translate "Filtrar" %}
+                        </button>
+                      </div>
+                </div>
+
+
+              
+              
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </form> 
 <div class="mt-5">
   <h2>Lista de Usuarios
   </h2>
 
   <table class="table">
-      <thead class="thead-light">
-          <tr>
-              <th style='font-size:20px'scope="col">Nome da empresa</th>
-              <th style='font-size:20px'scope="col">Categoria</th>
-             
-              <th style='font-size:20px'scope="col">Ações</th>
-          </tr>
-      </thead>
-      <tbody>
-          
-        {% for object in object_list %}
+    <thead class="thead-light">
         <tr>
-            <td class="text-center">
-                {{ object.username }}
-            </td>
-            <td class="text-center">
-                {{ object.email }}
-            </td>
+            <th style='font-size:20px'scope="col">Nome de Usuário</th>
+            <th style='font-size:20px'scope="col">Email</th>
+           
+            <th style='font-size:20px'scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for object in object_list %}
+        
+        <tr>
+            
+            <td>{{object.username}}</td>
+            <td>{{object.email}}</td>
             <td>
-              <a style='color:#7386D5'href=""><i class="fas fa-edit"></i></a>
-              <a style='color:#7386D5'href=""><i class="fas fa-trash-alt"></i></a>
-              <a style='color:#7386D5'href=""><i class="fas fa-search"></i></a>
-          </td>
+                <a style='color:#7386D5'href=""><i class="fas fa-edit"></i></a>
+                <a style='color:#7386D5'href=""><i class="fas fa-trash-alt"></i></a>
+                <a style='color:#7386D5'href="{"><i class="fas fa-search"></i></a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">
+            <p>Não existem reservas cadastradas.</p>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

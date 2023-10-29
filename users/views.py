@@ -6,7 +6,8 @@ from django.views import generic
 from users.permissions import GerentePermission
 
 from .forms import UserRegistrationForm
-
+from .filters import UserFilter
+from django_filters.views import FilterView
 User = get_user_model()
 
 class UserCreateView(views.SuccessMessageMixin, generic.CreateView):
@@ -16,11 +17,15 @@ class UserCreateView(views.SuccessMessageMixin, generic.CreateView):
     success_message = "Usuário cadastrado com sucesso!"
     template_name = "users/signup.html"
 
-class UsersListView(GerentePermission,LoginRequiredMixin, generic.ListView):
+class UsersListView(GerentePermission,LoginRequiredMixin, FilterView):
     model = User
-    paginate_by = 5
+    paginate_by = 10
     ordering = ["name"]
+    filterset_class = UserFilter
     template_name = "users/list.html"
+
+    def get_queryset(self):
+        return User.objects.filter()
 
 # class UserDeleteView(LoginRequiredMixin, generic.DeleteView):
 #   model = User

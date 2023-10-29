@@ -15,10 +15,18 @@
               <div class="input-content">
 
                 
+                <div class="d-flex">
+                    <div class="form-group">
+                    {{ filter.form.nome_empresa.label_tag }}
+                    {{ filter.form.nome_empresa }}
+                    </div>
 
-                <div class="form-group">
-                  {{ filter.form.nome_empresa.label_tag }}
-                  {{ filter.form.nome_empresa }}
+                    <div class="col-12 mx-0 mt-4">
+                        <button  style=' background-color:#7386D5;  color:white' class="btn " type="submit" name="filtrar">
+                          <i class="fa fa-filter"></i>
+                          {% translate "Filtrar" %}
+                        </button>
+                      </div>
                 </div>
 
 
@@ -26,12 +34,7 @@
               
             </div>
           </div>
-          <div class="col-12 mx-0 mt-3">
-            <button  style=' background-color:#7386D5;  color:white' class="btn " type="submit" name="filtrar">
-              <i class="fa fa-filter"></i>
-              {% translate "Filtrar" %}
-            </button>
-          </div>
+          
         </div>
       </section>
     </form>
