@@ -39,7 +39,7 @@ urlpatterns = [
     path('stands/detail/<int:pk>/', StandDetailView2.as_view(), name='detalhe2'),
     # path('detalhe/<int:id>/', detalhe_reserva, name='detalhe_reserva'),
 
-
+    path("", include("users.urls", namespace="users")),
     path('reserva/',ReservaCreateView.as_view(),name='reserva_criar'),
     path('reserva/editar/<int:pk>/',ReservaUpdateView.as_view(), name='reserva_editar'),
     path('reserva/remover/<int:pk>/',ReservaDeleteView.as_view(),name='reserva_remover'),
@@ -49,7 +49,7 @@ urlpatterns = [
     path('stand/editar/<int:pk>/',StandUpdateView.as_view(), name='stand_editar'),
     path('stand/remover/<int:pk>/',StandDeleteView.as_view(),name='stand_remover'),
     path('stand/listar',StandListView.as_view(),name='stand_listar'),
-    path('accounts/', include('allauth.urls')),
+    # path('accounts/', include('allauth.urls')),
     path('accounts/profile/',ProfileView.as_view(),name='account_profile'),
 
 

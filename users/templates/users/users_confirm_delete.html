@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Cadastro de Usuario
+{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+  
+  <form method="post">
+    <section class="form container-fluid p-5x">
+      {% csrf_token %}
+      <p> Você tem certeza que deseja excluir "{{ object.username }}"?</p>
+      {{ form }}
+    </section>
+
+    <a href="{% url 'users:list' %}" style=' background-color:#7386D5;  color:white' class="btn ">
+      Voltar
+    </a>
+    <button style=' background-color:#7386D5 ; color:white ' type="submit" class="btn ">
+      Confirmar
+    </button>
+  </form>
+
+</div>
+{% endblock %}

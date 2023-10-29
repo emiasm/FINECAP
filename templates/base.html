@@ -57,10 +57,13 @@
           <a href="{% url 'stand_listar' %}">Stands</a>
         </li>
 
-        <li>
-          <a href="{% url 'account_logout' %}">Sair</a>
-        </li>
+       <li>
+          <a href="{% url 'users:list' %}">Usuarios</a>
+        </li> 
 
+        <li>
+          <a href="{% url 'users:logout' %}">Sair</a>
+        </li> 
 
       </ul>
 

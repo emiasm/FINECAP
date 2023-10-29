@@ -24,4 +24,4 @@ class Reserva(models.Model):
 
         
     def __str__(self):
-        return self.localizacao
+        return self.cnpj
